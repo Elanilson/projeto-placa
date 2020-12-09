@@ -17,24 +17,30 @@ import java.awt.print.PrinterJob;
  * @author elani
  */
 public class TelaPrincipal extends javax.swing.JFrame {
+    
+    
 
     /**
      * Creates new form TelaPrincipal
      */
+     String titulo = "ACHOCOLATADO PO TODDY ORIGINAL 800G";
+    String money = "7,99";
+    String tamanhoFonte = "1";
+   
     String nome = "<html>\n" +
 "<head>\n" +
 "	<style type=\"text/css\">\n" +
 "		h1{\n" +
 " display:inline-block;\n" +
 "  transform:scale(2,1); /* W3C */\n" +
-"     	 font-size: 1em;\n" +
+"     	 font-size: "+tamanhoFonte+"em;\n" +
 "     	 text-align: center;\n" +
 "\n" +
 "		}\n" +
 "	</style>\n" +
 "</head>\n" +
 "<body>\n" +
-"<h1>ACHOCOLATADO PO TODDY ORIGINAL 800G </h1>\n" +
+"<h1>"+titulo+"</h1>\n" +
 "</body>\n" +
 "</html>";
     String cifra = "<html>\n" +
@@ -68,15 +74,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
 "	</style>\n" +
 "</head>\n" +
 "<body>\n" +
-"<h1>6,99</h1>\n" +
+"<h1>"+money+"</h1>\n" +
 "</body>\n" +
 "</html>";
+    
+    
     public TelaPrincipal() {
         initComponents();
+        setLocationRelativeTo(null);
+       // setExtendedState(MAXIMIZED_BOTH);
         Titulo.setText(nome);
-        
         cifrao.setText(cifra);
         valor.setText(dinheiro);
+        campoTitulo.setText(titulo);
+        campoValor.setText(money);
+        campoTamanhoDaFonte.setText(tamanhoFonte);
     }
     
     
@@ -92,7 +104,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        imprimir = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        campoTamanhoDaFonte = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        aplicar = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        campoTitulo = new javax.swing.JTextField();
+        campoValor = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel7 = new javax.swing.JPanel();
         Titulo = new javax.swing.JLabel();
@@ -123,29 +143,100 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel2.setBackground(new java.awt.Color(51, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informações", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+
+        imprimir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        imprimir.setText("Imprimir");
+        imprimir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                imprimirActionPerformed(evt);
             }
         });
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setText("Tamanho da fonte:");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setText("Titulo:");
+
+        aplicar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        aplicar.setText("Aplicar");
+        aplicar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aplicarActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setText("Valor:");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(18, 18, 18)
+                        .addComponent(campoValor, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addComponent(campoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(campoTamanhoDaFonte, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(aplicar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(imprimir)
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(0, 25, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(campoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(campoValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(campoTamanhoDaFonte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(imprimir)
+                    .addComponent(aplicar))
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(280, 280, 280)
-                .addComponent(jButton1)
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(560, 560, 560)
-                .addComponent(jButton1))
+                .addGap(27, 27, 27)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
@@ -155,14 +246,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Titulo.setDisplayedMnemonic(80);
         Titulo.setFont(new java.awt.Font("Tahoma", 1, 60)); // NOI18N
         Titulo.setText("MELÃO AMARELOii");
-        Titulo.setToolTipText("<html>\n<head>\n</head>\n<body>\n<h1> DULCE REDINHA KG </h1>\n</body>\n</html>");
-        Titulo.setAlignmentX(1.0F);
-        Titulo.setAlignmentY(1.0F);
+        Titulo.setToolTipText("");
+        Titulo.setAlignmentY(0.0F);
+        Titulo.setAutoscrolls(true);
+        Titulo.setDoubleBuffered(true);
+        Titulo.setFocusCycleRoot(true);
+        Titulo.setFocusTraversalPolicyProvider(true);
         Titulo.setIconTextGap(80);
         Titulo.setPreferredSize(new java.awt.Dimension(436, 58));
-        Titulo.setRequestFocusEnabled(false);
-        Titulo.setVerifyInputWhenFocusTarget(false);
-        jPanel7.add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 523, 312));
+        jPanel7.add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 20, 540, 312));
 
         cifrao.setText("R$:");
         jPanel7.add(cifrao, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 640, 140, 100));
@@ -196,18 +288,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 612, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 868, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 598, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void imprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imprimirActionPerformed
         // TODO add your handling code here:
         
          PrinterJob job = PrinterJob.getPrinterJob();
@@ -240,7 +332,73 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
             catch (PrinterException ex){}
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_imprimirActionPerformed
+
+    private void aplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aplicarActionPerformed
+        // TODO add your handling code here:
+        
+        
+        titulo = campoTitulo.getText().toString().toUpperCase();
+        money = campoValor.getText().toString();
+        tamanhoFonte = campoTamanhoDaFonte.getText().toString();
+        
+            String nome = "<html>\n" +
+"<head>\n" +
+"	<style type=\"text/css\">\n" +
+"		h1{\n" +
+" display:inline-block;\n" +
+"  transform:scale(2,1); /* W3C */\n" +
+"     	 font-size: "+tamanhoFonte+"em;\n" +
+"     	 text-align: center;\n" +
+"\n" +
+"		}\n" +
+"	</style>\n" +
+"</head>\n" +
+"<body>\n" +
+"<h1>"+titulo+"</h1>\n" +
+"</body>\n" +
+"</html>";
+    String cifra = "<html>\n" +
+"<head>\n" +
+"	<style type=\"text/css\">\n" +
+"		h1{\n" +
+" display:inline-block;\n" +
+"  transform:scale(2,1); /* W3C */\n" +
+"  font-family: Arial Black;\n" +
+"     	 font-size: 2.2em;\n" +
+"     	 text-align: center;\n" +
+"\n" +
+"		}\n" +
+"	</style>\n" +
+"</head>\n" +
+"<body>\n" +
+"<h1>R$:</h1>\n" +
+"</body>\n" +
+"</html>";
+    String dinheiro = "<html>\n" +
+"<head>\n" +
+"	<style type=\"text/css\">\n" +
+"		h1{\n" +
+" display:inline-block;\n" +
+"  transform:scale(2,1); /* W3C */\n" +
+"  font-family: Arial Black;\n" +
+"     	 font-size: 3.7em;\n" +
+"     	 text-align: center;\n" +
+"\n" +
+"		}\n" +
+"	</style>\n" +
+"</head>\n" +
+"<body>\n" +
+"<h1>"+money+"</h1>\n" +
+"</body>\n" +
+"</html>";
+        
+           Titulo.setText(nome);
+        cifrao.setText(cifra);
+        valor.setText(dinheiro);
+
+        
+    }//GEN-LAST:event_aplicarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -279,10 +437,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Titulo;
+    private javax.swing.JButton aplicar;
+    private javax.swing.JTextField campoTamanhoDaFonte;
+    private javax.swing.JTextField campoTitulo;
+    private javax.swing.JTextField campoValor;
     private javax.swing.JLabel cifrao;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton imprimir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -291,6 +456,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel valor;
